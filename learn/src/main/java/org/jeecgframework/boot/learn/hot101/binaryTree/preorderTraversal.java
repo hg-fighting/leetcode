@@ -10,6 +10,10 @@ import java.util.Stack;
  * @Author: hao gang
  * @Date: 2026/2/24  14:28
  * @Description: 二叉树前序遍历
+ * 描述
+ * 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+ * 数据范围：二叉树的节点数满足 0≤n≤1000 ，二叉树节点的值满足 1≤val≤100 ，树的各节点的值各不相同
+ * 要求：空间复杂度 O(n)，时间复杂度 O(n)
  */
 public class preorderTraversal {
 

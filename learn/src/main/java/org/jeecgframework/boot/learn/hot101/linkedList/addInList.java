@@ -6,6 +6,11 @@ import org.jeecgframework.boot.learn.hot101.basic.ListNode;
  * @Author: hao gang
  * @Date: 2026/2/24  10:59
  * @Description: 两个链表相加
+ * 描述
+ * 假设链表中每一个节点的值都在 0 - 9 之间，那么链表整体就可以代表一个整数。
+ * 给定两个这种链表，请生成代表两个整数相加值的结果链表。
+ * 数据范围：0≤n,m≤1000000，链表任意值 0≤val≤9
+ * 要求：空间复杂度 O(n)，时间复杂度 O(n)
  */
 public class addInList {
 

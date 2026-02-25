@@ -7,6 +7,8 @@ import java.util.ArrayList;
  * @Author: hao gang
  * @Date: 2026/2/25  8:15
  * @Description: 滑动窗口最大值
+ * 描述
+ * 给定一个长度为 n 的数组 num 和滑动窗口的大小 size ，找出所有滑动窗口里数值的最大值。
  */
 public class maxInWindows {
 

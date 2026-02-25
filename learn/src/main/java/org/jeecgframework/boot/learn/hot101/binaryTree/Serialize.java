@@ -6,6 +6,8 @@ import org.jeecgframework.boot.learn.hot101.basic.TreeNode;
  * @Author: hao gang
  * @Date: 2026/2/24  16:10
  * @Description: 序列化二叉树
+ * 描述
+ * 请实现两个函数，分别用来序列化和反序列化二叉树，不对序列化之后的字符串进行约束，但要求能够根据序列化之后的字符串重新构造出一棵与原二叉树相同的树。
  */
 public class Serialize {
 

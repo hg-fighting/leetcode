@@ -10,6 +10,10 @@ import java.util.Queue;
  * @Author: hao gang
  * @Date: 2026/2/24  10:24
  * @Description: 合并K个有序链表
+ * 描述
+ * 合并 k 个升序的链表并将结果作为一个升序的链表返回其头节点。
+ * 数据范围：节点总数 0≤n≤5000，每个节点的值满足 ∣val∣≤1000
+ * 要求：时间复杂度 O(nlogk)
  */
 public class mergeKLists {
 

@@ -10,6 +10,19 @@ import java.util.Stack;
  * @Author: hao gang
  * @Date: 2026/2/24  14:39
  * @Description: 后序遍历
+ * 描述
+ * 给定一个二叉树，返回它的 后序 遍历。
+ * 示例:
+ * 输入: [1,null,2,3]
+ * 1
+ * \
+ * 2
+ * /
+ * 3
+ * 输出: [3,2,1]
+ * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
+ * 数据范围：二叉树的节点数满足 0≤n≤1000，二叉树每个节点的值满足 0≤val≤1000
+ * 要求：空间复杂度 O(n)，时间复杂度 O(n)
  */
 public class postorderTraversal {
 

@@ -6,6 +6,11 @@ import org.jeecgframework.boot.learn.hot101.basic.TreeNode;
  * @Author: hao gang
  * @Date: 2026/2/24  15:53
  * @Description: 验证二叉搜索树
+ * 描述
+ * 给定一个二叉树根节点，请你判断这棵树是不是二叉搜索树。
+ * 二叉搜索树满足每个节点的左子树上的所有节点均小于当前节点且右子树上的所有节点均大于当前节点。
+ * 数据范围：节点数满足 0≤n≤100000，节点上的值满足 ∣val∣≤100000
+ * 要求：空间复杂度 O(n)，时间复杂度 O(n)
  */
 public class isValidBST {
 

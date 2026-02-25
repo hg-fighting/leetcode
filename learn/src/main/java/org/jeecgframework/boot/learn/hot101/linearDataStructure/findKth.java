@@ -6,13 +6,15 @@ import java.util.Random;
  * @Author: hao gang
  * @Date: 2026/2/25  8:31
  * @Description: 查找第K大的数
+ * 题目描述
+ * 给定一个整数数组，找出其中的第 K 大的数。
  */
 public class findKth {
 
     //交换函数
     Random r = new Random();
 
-    public static void swap(int arr[], int a, int b) {
+    public static void swap(int[] arr, int a, int b) {
         int temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;

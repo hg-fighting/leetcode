@@ -9,6 +9,10 @@ import java.util.Collections;
  * @Author: hao gang
  * @Date: 2026/2/24  11:06
  * @Description: 单链表的排序
+ * 描述
+ * 给定一个节点数为n的无序单链表，对其按升序排序。
+ * 数据范围：0≤n≤100000
+ * 要求：空间复杂度 O(n)，时间复杂度 O(nlogn)
  */
 public class sortInList {
 

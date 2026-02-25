@@ -6,6 +6,8 @@ import org.jeecgframework.boot.learn.hot101.basic.ListNode;
  * @Author: hao gang
  * @Date: 2026/2/24  10:36
  * @Description: 判断链表中是否有环
+ * 描述
+ * 给定一个链表，判断链表中是否有环。
  */
 public class hasCycle {
 
