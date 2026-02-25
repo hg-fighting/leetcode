@@ -14,7 +14,7 @@ public class reConstructBinaryTree {
     /**
      * 重建二叉树：根据前序遍历和中序遍历的结果，重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
      */
-    public TreeNode reConstructBinaryTree(int [] pre, int [] vin) {
+    public TreeNode reConstructBinaryTree(int[] pre, int[] vin) {
         int n = pre.length;
         int m = vin.length;
         //每个遍历都不能为0

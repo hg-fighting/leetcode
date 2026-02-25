@@ -8,6 +8,7 @@ import org.jeecgframework.boot.learn.hot101.basic.TreeNode;
  * @Description: 平衡二叉树判断
  */
 public class IsBalanced_Solution {
+
     /**
      * 平衡二叉树：每个节点的左右子树高度差不超过1
      */
@@ -22,6 +23,7 @@ public class IsBalanced_Solution {
         }
         return isBalanced(root.left) && isBalanced(root.right);
     }
+
     private int getHeight(TreeNode root) {
         if (root == null) {
             return 0;

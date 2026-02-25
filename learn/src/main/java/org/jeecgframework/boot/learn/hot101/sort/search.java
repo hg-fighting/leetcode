@@ -7,7 +7,7 @@ package org.jeecgframework.boot.learn.hot101.sort;
  */
 public class search {
 
-    public int search (int[] nums, int target) {
+    public int search(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {

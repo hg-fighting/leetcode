@@ -48,7 +48,7 @@ public class lowestCommonAncestor {
             if (target < node.val) {
                 node = node.left;
             }
-                //大的在右子树
+            //大的在右子树
             else {
                 node = node.right;
             }

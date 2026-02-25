@@ -44,6 +44,7 @@ public class preorderTraversal {
         preorderTraversal2(root, res);
         return res;
     }
+
     private void preorderTraversal2(TreeNode root, List<Integer> res) {
         if (root == null) {
             return;
