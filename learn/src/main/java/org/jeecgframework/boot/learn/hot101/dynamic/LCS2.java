@@ -10,7 +10,7 @@ package org.jeecgframework.boot.learn.hot101.dynamic;
 public class LCS2 {
 
 
-    public String LCS2 (String str1, String str2) {
+    public String LCS2(String str1, String str2) {
         //dp[i][j]表示到str1第i个到str2第j个为止的公共子串长度
         int[][] dp = new int[str1.length() + 1][str2.length() + 1];
         int max = 0;

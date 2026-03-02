@@ -14,7 +14,7 @@ import java.util.Arrays;
  */
 public class solve {
 
-    public int solve (String nums) {
+    public int solve(String nums) {
         //排除0
         if (nums.equals("0"))
             return 0;
