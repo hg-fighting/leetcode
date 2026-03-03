@@ -16,6 +16,7 @@ public class solve2 {
 
     //记录四个方向
     private int[][] dirs = new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
     private int n, m;
 
     //深度优先搜索，返回最大单元格数

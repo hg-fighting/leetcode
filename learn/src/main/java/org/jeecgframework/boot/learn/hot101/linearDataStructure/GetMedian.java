@@ -33,9 +33,11 @@ public class GetMedian {
 
     //小顶堆，元素数值都比大顶堆大
     private final PriorityQueue<Integer> max = new PriorityQueue<>();
+
     //大顶堆，元素数值较小
     private final PriorityQueue<Integer> min = new PriorityQueue<>((o1,
                                                                     o2) -> o2.compareTo(o1));
+
     List<Integer> list = new ArrayList<Integer>();
 
     public void Insert(Integer num) {
