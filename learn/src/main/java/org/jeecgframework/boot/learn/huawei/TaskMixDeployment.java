@@ -47,11 +47,9 @@ public class TaskMixDeployment {
         // 排序事件：1. 按时间升序；2. 时间相同时，减少事件（负数）先处理
         events.sort((a, b) -> {
             if (a[0] != b[0]) {
-                return a[0] - b[0];
-            } else {
-                // 结束事件（-parallelism）先执行，避免同一时间点重复计算
-                return a[1] - b[1];
+                return Integer.compare(a[0], b[0]);
             }
+            return Integer.compare(a[1], b[1]); // 负数在前：结束先处理
         });
 
         int currentServers = 0;
