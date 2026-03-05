@@ -1,6 +1,8 @@
 package org.jeecgframework.boot.learn.huawei;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * @Author: hao gang

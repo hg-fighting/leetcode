@@ -1,4 +1,5 @@
 package org.jeecgframework.boot.learn.huawei;
+
 import java.util.Scanner;
 
 /**
@@ -29,10 +30,13 @@ import java.util.Scanner;
  * 3
  */
 public class BaseStationTSP {
+
     // 全局变量：最短路径总距离（初始化为极大值）
     private static int minDistance = Integer.MAX_VALUE;
+
     // 基站数量
     private static int n;
+
     // 基站间距离矩阵
     private static int[][] dist;
 
@@ -60,9 +64,10 @@ public class BaseStationTSP {
 
     /**
      * 回溯函数
-     * @param curr 当前所在基站下标
-     * @param visited 基站访问标记（true=已访问）
-     * @param currDist 当前累计距离
+     *
+     * @param curr         当前所在基站下标
+     * @param visited      基站访问标记（true=已访问）
+     * @param currDist     当前累计距离
      * @param visitedCount 已访问的基站数量
      */
     private static void backtrack(int curr, boolean[] visited, int currDist, int visitedCount) {

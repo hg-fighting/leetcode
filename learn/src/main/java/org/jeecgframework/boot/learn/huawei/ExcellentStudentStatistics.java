@@ -1,6 +1,8 @@
 package org.jeecgframework.boot.learn.huawei;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * @Author: hao gang
@@ -30,10 +32,14 @@ import java.util.*;
  * 输出：0 1 2。
  */
 public class ExcellentStudentStatistics {
+
     // 存储员工打卡信息的实体类
     static class Employee {
+
         int id;          // 员工id
+
         int count;       // 打卡次数
+
         int firstDay;    // 首次打卡日期（1~30）
 
         public Employee(int id) {
