@@ -54,7 +54,10 @@ public class AIProcessorCombination {
         String[] arrayStr = arrayInput.replaceAll("[\\[\\] ]", "").split(",");
         List<Integer> availableProcessors = new ArrayList<>();
         for (String s : arrayStr) {
-            availableProcessors.add(Integer.parseInt(s));
+            // 处理空输入（如"[]"的情况）
+            if (!s.isEmpty()) {
+                availableProcessors.add(Integer.parseInt(s));
+            }
         }
 
         // 步骤2：根据调度原则找出符合要求的组合
@@ -95,29 +98,70 @@ public class AIProcessorCombination {
         // 根据申请数量选择合适的处理器组合
         switch (num) {
             case 1:
-                // 选择一个处理器
-                if (!availableLink1.isEmpty()) {
-                    result.addAll(generateCombinations(availableLink1, 1));
+                // 优先级顺序：剩余1个 > 3个 > 2个 > 4个
+                List<Integer> preferredSizes1 = Arrays.asList(1, 3, 2, 4);
+                List<List<Integer>> candidates1 = new ArrayList<>();
+                if (availableLink1.size() >= 1) {
+                    candidates1.add(availableLink1);
                 }
-                if (!availableLink2.isEmpty()) {
-                    result.addAll(generateCombinations(availableLink2, 1));
+                if (availableLink2.size() >= 1) {
+                    // 修复：变量名从candidates2改为candidates1
+                    candidates1.add(availableLink2);
+                }
+                // 按优先级排序候选链路
+                candidates1.sort((a, b) -> {
+                    int indexA = preferredSizes1.indexOf(a.size());
+                    int indexB = preferredSizes1.indexOf(b.size());
+                    return Integer.compare(indexA, indexB);
+                });
+                // 只添加最高优先级的链路组合
+                if (!candidates1.isEmpty()) {
+                    int minPriorityIndex = preferredSizes1.indexOf(candidates1.get(0).size());
+                    for (List<Integer> link : candidates1) {
+                        int currentPriorityIndex = preferredSizes1.indexOf(link.size());
+                        if (currentPriorityIndex == minPriorityIndex) {
+                            result.addAll(generateCombinations(link, 1));
+                        } else {
+                            break; // 已排序，后续链路优先级更低
+                        }
+                    }
                 }
                 break;
             case 2:
-                // 选择两个处理器
+                // 优先级顺序：剩余2个 > 4个 > 3个
+                List<Integer> preferredSizes2 = Arrays.asList(2, 4, 3);
+                List<List<Integer>> candidates2 = new ArrayList<>();
                 if (availableLink1.size() >= 2) {
-                    result.addAll(generateCombinations(availableLink1, 2));
+                    candidates2.add(availableLink1);
                 }
                 if (availableLink2.size() >= 2) {
-                    result.addAll(generateCombinations(availableLink2, 2));
+                    candidates2.add(availableLink2);
+                }
+                // 按优先级排序候选链路
+                candidates2.sort((a, b) -> {
+                    int indexA = preferredSizes2.indexOf(a.size());
+                    int indexB = preferredSizes2.indexOf(b.size());
+                    return Integer.compare(indexA, indexB);
+                });
+                // 只添加最高优先级的链路组合
+                if (!candidates2.isEmpty()) {
+                    int minPriorityIndex = preferredSizes2.indexOf(candidates2.get(0).size());
+                    for (List<Integer> link : candidates2) {
+                        int currentPriorityIndex = preferredSizes2.indexOf(link.size());
+                        if (currentPriorityIndex == minPriorityIndex) {
+                            result.addAll(generateCombinations(link, 2));
+                        } else {
+                            break; // 已排序，后续链路优先级更低
+                        }
+                    }
                 }
                 break;
             case 4:
-                // 选择四个处理器
-                if (availableLink1.size() >= 4) {
+                // 必须选择同一链路剩余可用的处理器数量为 4 个
+                if (availableLink1.size() == 4) {
                     result.addAll(generateCombinations(availableLink1, 4));
                 }
-                if (availableLink2.size() >= 4) {
+                if (availableLink2.size() == 4) {
                     result.addAll(generateCombinations(availableLink2, 4));
                 }
                 break;
