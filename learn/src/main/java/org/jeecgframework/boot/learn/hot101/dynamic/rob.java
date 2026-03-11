@@ -17,6 +17,7 @@ public class rob {
         dp[1] = nums[0];
         for (int i = 2; i <= nums.length; i++)
             //对于每家可以选择偷或者不偷
+            //dp[i-1]表示不偷这家，dp[i-2]+nums[i-1]表示偷这家
             dp[i] = Math.max(dp[i - 1], nums[i - 1] + dp[i - 2]);
         return dp[nums.length];
     }

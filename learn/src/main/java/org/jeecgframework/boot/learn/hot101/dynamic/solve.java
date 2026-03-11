@@ -27,16 +27,18 @@ public class solve {
                 if (nums.charAt(i - 1) != '1' && nums.charAt(i - 1) != '2')
                     return 0;
         }
+        // 动态规划数组，dp[i]表示前i个字符的译码结果数
         int[] dp = new int[nums.length() + 1];
         //辅助数组初始化为1
         Arrays.fill(dp, 1);
         for (int i = 2; i <= nums.length(); i++) {
-            //在11-19，21-26之间的情况
+            //在11-19，21-26之间的情况，译码结果数为前i-1个字符的译码结果数加上前i-2个字符的译码结果数
             if ((nums.charAt(i - 2) == '1' && nums.charAt(i - 1) != '0') ||
                     (nums.charAt(i - 2) == '2' && nums.charAt(i - 1) > '0' &&
                             nums.charAt(i - 1) < '7'))
                 dp[i] = dp[i - 1] + dp[i - 2];
             else
+                //其他情况，译码结果数为前i-1个字符的译码结果数
                 dp[i] = dp[i - 1];
         }
         return dp[nums.length()];

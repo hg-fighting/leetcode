@@ -13,14 +13,13 @@ public class minWindow {
 
     //检查是否有小于0的
     boolean check(int[] hash) {
-        for (int i = 0; i < hash.length; i++) {
-            if (hash[i] < 0)
+        for (int j : hash) {
+            if (j < 0) {
                 return false;
+            }
         }
         return true;
     }
-
-    ;
 
     public String minWindow(String S, String T) {
         int cnt = S.length() + 1;
@@ -28,7 +27,9 @@ public class minWindow {
         int[] hash = new int[128];
         for (int i = 0; i < T.length(); i++)
             //初始化哈希表都为负数，找的时候再加为正
+        {
             hash[T.charAt(i)] -= 1;
+        }
         int slow = 0, fast = 0;
         //记录左右区间
         int left = -1, right = -1;
@@ -52,8 +53,9 @@ public class minWindow {
             }
         }
         //找不到的情况
-        if (left == -1)
+        if (left == -1) {
             return "";
+        }
         return S.substring(left, right + 1);
     }
 }

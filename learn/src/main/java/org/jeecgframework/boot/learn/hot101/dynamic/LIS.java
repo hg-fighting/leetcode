@@ -15,22 +15,81 @@ import java.util.Arrays;
  */
 public class LIS {
 
+    /**
+     * 方法1：动态规划
+     * 时间复杂度：O(n^2)
+     * 空间复杂度：O(n)
+     */
     public int LIS(int[] arr) {
+        // 边界条件：空数组或单元素数组
+        if (arr == null || arr.length == 0)
+            return 0;
+        if (arr.length == 1)
+            return 1;
+
+        // dp[i]：以第i个元素结尾的最长上升子序列长度
         int[] dp = new int[arr.length];
-        //设置数组长度大小的动态规划辅助数组
+
+        // 初始状态：每个元素自身构成长度为1的子序列
         Arrays.fill(dp, 1);
+
+        // 存储最长上升子序列的长度
         int res = 0;
+
+        // 遍历每个元素作为子序列的结尾
         for (int i = 1; i < arr.length; i++) {
+            // 遍历所有可能的前驱元素
             for (int j = 0; j < i; j++) {
-                //可能j不是所需要的最大的，因此需要dp[i] < dp[j] + 1
+                // 条件1：当前元素大于前驱元素（严格上升）
+                // 条件2：更新后能获得更长的子序列
                 if (arr[i] > arr[j] && dp[i] < dp[j] + 1) {
-                    //i点比j点大，理论上dp要加1
+                    // 更新以i结尾的最长子序列长度
                     dp[i] = dp[j] + 1;
-                    //找到最大长度
+
+                    // 第31行：实时更新全局最长子序列长度
                     res = Math.max(res, dp[i]);
                 }
             }
         }
+
         return res;
+    }
+
+    /**
+     * 方法2：动态规划 + 二分查找
+     * 时间复杂度：O(nlogn)
+     * 空间复杂度：O(n)
+     */
+    public int LIS2(int[] arr) {
+        if (arr == null || arr.length == 0)
+            return 0;
+
+        // tails[i]表示长度为i+1的所有上升子序列的最小结尾元素
+        int[] tails = new int[arr.length];
+        // 当前最长上升子序列的长度
+        int len = 0;
+
+        for (int num : arr) {
+            // 二分查找找到num应插入的位置
+            int left = 0, right = len;
+            while (left < right) {
+                int mid = left + (right - left) / 2;
+                if (tails[mid] < num) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+
+            // 更新tails数组
+            tails[left] = num;
+
+            // 如果插入位置等于当前长度，说明找到更长的子序列
+            if (left == len) {
+                len++;
+            }
+        }
+
+        return len;
     }
 }

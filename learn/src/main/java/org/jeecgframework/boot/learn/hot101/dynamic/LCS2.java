@@ -5,7 +5,8 @@ package org.jeecgframework.boot.learn.hot101.dynamic;
  * @Date: 2026/2/25  8:51
  * @Description: 最长公共子串
  * 描述
- * 给定两个字符串 text1 和 text2，返回这两个字符串的最长 公共子串 的长度。如果不存在 公共子串 ，返回 0 。
+ * 给定两个字符串str1和str2，输出两个字符串的最长公共子串
+ * 题目保证str1和str2的最长公共子串存在且唯一。
  */
 public class LCS2 {
 

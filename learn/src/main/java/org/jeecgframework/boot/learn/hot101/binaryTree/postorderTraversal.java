@@ -27,39 +27,48 @@ import java.util.Stack;
 public class postorderTraversal {
 
     /**
-     * 后序遍历-左-右-中
+     * 后序遍历-迭代算法（左-右-中）
      */
     public List<Integer> postorderTraversal(TreeNode root) {
-        //添加遍历结果的数组
+        // 存储遍历结果的列表
         List<Integer> res = new ArrayList<>();
-        Stack<TreeNode> s = new Stack<TreeNode>();
+        // 辅助栈，用于模拟递归过程
+        Stack<TreeNode> s = new Stack<>();
+        // 记录上一个访问的节点，用于判断右子树是否已访问
         TreeNode pre = null;
+
+        // 循环条件：当前节点不为空或栈不为空
         while (root != null || !s.isEmpty()) {
-            //每次先找到最左边的节点
+            // 第一步：找到当前节点的最左后代，依次入栈
             while (root != null) {
                 s.push(root);
                 root = root.left;
             }
-            //弹出栈顶
+
+            // 第二步：弹出栈顶节点
             TreeNode node = s.pop();
-            //如果该元素的右边没有或是已经访问过
+
+            // 第三步：检查是否可以访问当前节点
+            // 条件：右子树为空，或右子树已经被访问过
             if (node.right == null || node.right == pre) {
-                //访问中间的节点
+                // 访问中间节点（后序遍历的"中"）
                 res.add(node.val);
-                //且记录为访问过了
+                // 记录当前节点为已访问节点
+                // 标记当前节点为已访问
                 pre = node;
             } else {
-                //该节点入栈
+                // 第四步：不能访问当前节点，重新压回栈中
                 s.push(node);
-                //先访问右边
+                // 转向处理右子树（后序遍历的"右"）
                 root = node.right;
             }
         }
+
         return res;
     }
 
     /**
-     * 递归
+     * 后序遍历-递归算法（作为对比）
      */
     public List<Integer> postorderTraversal2(TreeNode root) {
         List<Integer> res = new ArrayList<>();
@@ -71,8 +80,8 @@ public class postorderTraversal {
         if (root == null) {
             return;
         }
-        postorderTraversal2(root.left, res);
-        postorderTraversal2(root.right, res);
-        res.add(root.val);
+        postorderTraversal2(root.left, res);  // 左
+        postorderTraversal2(root.right, res); // 右
+        res.add(root.val);                    // 中
     }
 }
